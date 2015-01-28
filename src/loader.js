@@ -3,10 +3,10 @@ var cSite,
 
 // Get Site
 getSite = function () {
-    url = window.location.hostname.replace('www.', '').replace('.com', '');
+    url = window.location.hostname.replace('www.', '');
     for (i = 0; i < sList.length; i++) {
         if (url == sList[i]) { 
-          cSite = sList[i];
+          cSite = sList[i].replace('.com', '');
         } else {}
     }
 };

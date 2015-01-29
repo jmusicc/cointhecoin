@@ -116,7 +116,7 @@ body {
 .bhTitle3 {
   float: right;
 }
-label[aria-pressed=] {
+label[aria-pressed=false] {
   color: #000 !important;
 }
 #hilo label {

@@ -36,7 +36,7 @@ body {
   border: 0 !important;
 }
 body {
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 .profit {
   color: green;

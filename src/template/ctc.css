@@ -1,0 +1,134 @@
+.lw { font-size: 60px; }
+body {
+  background: #000 !important;
+}
+
+.bHistory {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.bot-tabs {
+  border-top-right-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+}
+#betHistory {
+  border: 1px solid #777;
+  border-bottom: 0;
+}
+#bot {
+  border: 1px solid #777;
+  border-top: 0;
+}
+.fullcontain {
+  width: 100%;
+}
+.bhTitle {
+  width: 100%;
+  height: auto;
+  padding: 8px;
+  background: #000;
+  border-bottom: 1px solid #777;
+}
+.bhTable tr, .bhTable table, .bhTable tr {
+  width: 100% !important;
+}
+.table-responsive{
+  border: 0 !important;
+}
+body {
+  overflow: hidden;
+}
+.profit {
+  color: green;
+}
+.loss {
+  color:  red;
+}
+.bhTable {
+  width: auto;
+  background: #000;
+  background:  rgba(33,33,33,0.75);
+  margin-bottom: 0 !important;
+  border-bottom: 1px solid #444 !important;
+}
+.bhRowTitle th, .bhRowContainer td {
+  border-right: 1px solid #333;
+}
+.bhRowTitle th:last-of-type, .bhRowContainer td:last-of-type {
+  border-right: 0;
+}
+.bhRowTitle {
+  border-bottom:  1px solid #777;
+  color: #999;
+  font-weight: bolder;
+}
+.bhRowContainer {
+  color: #777;
+}
+
+.bot1a-table {
+  width: 100%;
+}
+#bot-1, #bot-2, #bot-3 {
+  border: 1px solid #666;
+  padding: 5px;
+  margin: 4px 3px 3px 2px;
+  background:#000;
+  background:  rgba(0,0,0,0.7);
+}
+
+.bot1a-table th {
+  width: 50%;
+}
+
+#bot label {
+  color: #aaa;
+  width: 100%;
+  border-bottom: 1px solid #444;
+  border-top: 1px solid #444;
+  padding: 10px 10px 10px 5px;
+  
+}
+::-webkit-input-placeholder { 
+  color: #999;
+}
+#bot input[type=text] {
+  width: 100%;
+  
+  border: 1px solid #777;
+  margin-right: 0px;
+  color: #aaa;
+  text-align: center;
+  background-color: #383838 !important;
+  padding: 5px;
+}
+.bhRowContainer td {
+  background: #000;
+  background: rgba(0,0,0,0.75);
+}
+.bhTable table, .bhTable tr, .bhTable th {
+  width: auto !important;
+}
+.bhTable th, .bhTable td {
+  width: 25% !important;
+  text-align: center;
+}
+.bhTitle3 {
+  float: right;
+}
+label[aria-pressed=] {
+  color: #000 !important;
+}
+#hilo label {
+  margin: 0;
+  width: 30%;
+  padding: 2;
+  text-align: center;
+  height:auto;
+}
+.bhTitle2 {
+ 
+  color: #bbb;
+  font-weight: bold;
+  height: 100%;
+}

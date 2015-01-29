@@ -35,6 +35,9 @@ body {
 .table-responsive{
   border: 0 !important;
 }
+.bot1-container {
+  overflow-x: hidden !important;
+}
 body {
   overflow-x: hidden;
 }

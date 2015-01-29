@@ -85,11 +85,12 @@ body {
 }
 
 #bot label {
+  margin:0 !important;
   color: #aaa;
   width: 100%;
   border-bottom: 1px solid #444;
   border-top: 1px solid #444;
-  padding: 10px 10px 10px 5px;
+  padding: 10px 10px 10px 5px !important;
   
 }
 ::-webkit-input-placeholder { 

@@ -107,5 +107,7 @@ injectUIEvents = function () {
 	$('#bot').tabs();
 	$(" div , th, td, span, img").flowtype({minFont:10, maxFont:30, maximum:1980, fontRatio:50})
 	$('#hilo').buttonset();
+	
+$('#scroll tbody').empty();
 }
 setTimeout(injectUIEvents, 6000);

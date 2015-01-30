@@ -23,7 +23,7 @@ setTimeout(injectLib, 3000);
 
 injectUI = function () {
 	ctcUI='';
-	ctcUI += '<div id="ctcBot" style="display:absolute;z-index:1000 !important;"class="fullcontain container-fluid"><div id="innerContainer" class="bot-inner">';
+	ctcUI += '<div id="ctcBot" style="position:absolute !important;z-index:1000 !important;"class="fullcontain container-fluid"><div id="innerContainer" class="bot-inner">';
 	ctcUI += '<div id="betHistory" class="bHistory"><div id="bhTitle" class="bhTitle">';
 	ctcUI += '<span class="bhTitle2">Bet History</span>';
 	ctcUI += '<span class="bhTitle3"><a href="http://cointhecoin.com"><img src="http://i.imgur.com/OIoQpq6.png"/></a></span>';
@@ -107,7 +107,7 @@ injectUIEvents = function () {
 	$('#bot').tabs();
 	$(" div , th, td, span, img").flowtype({minFont:10, maxFont:30, maximum:1980, fontRatio:50})
 	$('#hilo').buttonset();
-	
+
 $('#scroll tbody').empty();
 }
 setTimeout(injectUIEvents, 6000);

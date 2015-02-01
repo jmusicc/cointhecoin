@@ -15,7 +15,7 @@ injectLib = function () {
 	lib += '<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/Flowtype.js/1.1.0/flowtype.min.js"></script>';
 	css += '<link type="text/css" rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1/themes/vader/jquery-ui.css"/>';
 	css += '<link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>';
-	css += '<link type="text/css" rel="stylesheet" href="https://rawgit.com/jmusicc/cointhecoin/master/src/css/ctc.css"/>';
+	css += '<link type="text/css" rel="stylesheet" href="//rawgit.com/jmusicc/cointhecoin/master/src/css/ctc.css"/>';
 	css = css += lib;
 	$(css).appendTo('head');
 }
@@ -110,4 +110,4 @@ injectUIEvents = function () {
 
 $('#scroll tbody').empty();
 }
-setTimeout(injectUIEvents, 9000);
+setTimeout(injectUIEvents, 6000);

@@ -1,4 +1,4 @@
-
+clear() & console.log("Note, it can take up to 10 seconds for the bot to fully initialize");
 var bet, api, addRow, curbet, hilo, target, seed, betResult, getResult, lose, win, balancebefore, setParams, basebet, wincount, firstbet=true;
 var totalloss = 0,
 totalwin=0,

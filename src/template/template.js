@@ -41,7 +41,7 @@ injectUI = function () {
 	ctcUI += '<tr id="bhRow" class="bhRowContainer"><div><td>12345678</td><td>0.00100000</td><td>10x</td><td class="profit">+0.01000000</td></div></tr>';
 	ctcUI += '<tr id="bhRow" class="bhRowContainer"><div><td>12345678</td><td>0.00100000</td><td>10x</td><td class="profit">+0.01000000</td></div></tr>';
 	ctcUI += '</tbody></table></div></div>';
-	ctcUI += '<div style="width:100%;background:#000;background:rgba(0,0,0,0.5)"id="toolbar"><button id="startstop">Start/Stop</button><button id="roll">Roll</button><button id="setparams">Set Params</button></toolbar>';
+	ctcUI += '<div class="ui-widget-header ui-corner-all" style="width:100%;background:#000;background:rgba(0,0,0,0.5)"id="toolbar"><button id="startstop">Start/Stop</button><button id="roll">Roll</button><button id="setparams">Set Params</button></toolbar>';
 	ctcUI += '</div>';
 	ctcUI += '<div id="bot" class="bot-tabs" style="width:100%;" class="container-fluid">';
 	ctcUI += '<ul><li><a href="'+rootURL+'#bot-1">Basic</a></li>';

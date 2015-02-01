@@ -135,14 +135,13 @@ var e = document.createElement('script');
 setTimeout(function(){
 	
 	$('#roll, #setparams').button();
-	$('#setparams').click(function(){api.setParams();};
+	$('#setparams').click(function(){api.setParams();});
 	$( "#startstop" ).button({
       text: false,
       icons: {
         primary: "ui-icon-play"
       }
-    })
-    .click(function() {
+    }).click(function() {
       var options;
       if ( $( this ).text() === "play" ) {
         options = {
@@ -150,12 +149,12 @@ setTimeout(function(){
           icons: {
             primary: "ui-icon-pause"
           }
-      };
-      loop = setInterval(function(){
-          if (betstarted === false) {
-          api.bet();
-      }
-      }, interval);  
+      	};
+		loop = setInterval(function(){
+			if (betstarted === false) {
+			api.bet();
+			}
+		}, interval);  
       } else {
         options = {
           label: "play",
@@ -167,4 +166,4 @@ setTimeout(function(){
       }
       $( this ).button( "option", options );
     });
-}, 6000);
+}, 7000);

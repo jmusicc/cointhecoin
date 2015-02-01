@@ -6,12 +6,12 @@ var css='',
 
 if (!jQueryExists === true) {
 	var e = document.createElement('script');
-		e.setAttribute('src', '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js');
+		e.setAttribute('src', '//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js');
 		document.body.appendChild(e);		
 }
 injectLib = function () {
 	lib += '<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.3/jquery.slimscroll.min.js"></script>';
-	lib += '<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>';
+	lib += '<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>';
 	lib += '<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/Flowtype.js/1.1.0/flowtype.min.js"></script>';
 	css += '<link type="text/css" rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1/themes/vader/jquery-ui.css"/>';
 	css += '<link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>';

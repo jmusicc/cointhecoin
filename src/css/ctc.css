@@ -2,10 +2,6 @@
 body {
   background: #000 !important;
 }
-#toolbar {
-    padding: 4px;
-    display: inline-block;
-  }
 .bHistory {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;

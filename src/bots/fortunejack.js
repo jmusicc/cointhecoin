@@ -62,7 +62,7 @@ var api = {
     },
     addRow: function() {
         var row = '<tr id="bhRow" class="bhRowContainer"><div><td>' + betResult.id + '</td><td>' + betResult.amount + '</td><td>10x</td><td class="' + betResult.winloss + '">' + betResult.profit + '</td></div></tr>';
-        if ($('#scroll tr').length >= 15) {
+        if ($('#scroll tr').length >= 5) {
             $('#scroll tr:last').remove();
         }
         $(row).insertAfter('#scroll tbody');
@@ -99,7 +99,7 @@ var api = {
        } else {
        	curbet = basebet;
        	mwcount=0;
-       	clearInterval(loop);
+       	$('#startstop').click();
        }
        betstarted = false;
     },

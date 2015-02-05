@@ -60,6 +60,17 @@ var api = {
                 api.addRow();
             }
     },
+   
+    bet: function() {
+
+    
+            betstarted = true;
+            balancebefore = datamsg[3];
+            seed = Math.floor(Math.random() * 10000000);
+            sendlog('21,' + curbet + ',' + hilo + ',' + target * 100 + ',' + seed) & api.getResult();
+
+  
+    },
     addRow: function() {
         var row = '<tr id="bhRow" class="bhRowContainer"><div><td>' + betResult.id + '</td><td>' + betResult.amount + '</td><td>10x</td><td class="' + betResult.winloss + '">' + betResult.profit + '</td></div></tr>';
         if ($('#scroll tr').length >= 5) {
@@ -72,16 +83,6 @@ var api = {
             api.lose();
         }
         
-    },
-    bet: function() {
-
-    
-            betstarted = true;
-            balancebefore = datamsg[3];
-            seed = Math.floor(Math.random() * 10000000);
-            sendlog('21,' + curbet + ',' + hilo + ',' + target * 100 + ',' + seed) & api.getResult();
-
-  
     },
     setParams: function() {
         basebet = Math.floor($('#basebet').val() * 1e8);
@@ -121,6 +122,8 @@ var api = {
         } else {}
     }
 }
+
+
 
 var injectElement = '.dicewrapper',
 	jQueryExists = false,

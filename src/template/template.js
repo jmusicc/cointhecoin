@@ -55,11 +55,11 @@ injectUI = function () {
 	ctcUI += '<td><input type="text" placeholder="Ex: 0.01000000" id="basebet"/></td>';
 	ctcUI += '<td><input type="text" placeholder="Ex: 2 for 2x, 10 for 10x" id="payout"/></td>';
 	ctcUI += '</tr></tbody><thead><tr>';
-	ctcUI += '<th><label for="basebet">High/Low/Swap: </label></th>'; 
-	ctcUI += '<th><label for="payout">Swap Every: </label></th>';
+	ctcUI += '<th><label for="hilo">High/Low/Swap: </label></th>'; 
+	ctcUI += '<th><label for="swapevery">Swap Every: </label></th>';
 	ctcUI += '</tr></thead><tbody><tr>';
 	ctcUI += '<td><div id="hilo"><input type="radio" id="hi" value="hi" name="hilo"/><label for="hi">High</label><input type="radio" id="lo" value="lo" name="hilo" checked="checked"/><label for="lo">Low</label><input type="radio" id="swap" value="swap" name="hilo"/><label for="swap">Swap</label></div></td>';
-	ctcUI += '<td><input type="text" placeholder="Number of Rolls. Ex: 3" id="payout"/></td>';
+	ctcUI += '<td><input type="text" placeholder="Number of Rolls. Ex: 3" id="swapevery"/></td>';
 	ctcUI += '</tr></tbody></table></div></div>';
 	ctcUI += '<div id="bot-2"><div id="bot-1a" class="table-responsive bot1-container">';
 	ctcUI += '<table class="bot1a-table table-condensed"><thead><tr>';

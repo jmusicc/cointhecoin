@@ -7,7 +7,8 @@ swapcount=0;
 curbet=10;
 target=10;
 hilo=0;
-
+injectElement;
+var injected= false;
 
 setTimeout(function(){
 var css='', lib='';

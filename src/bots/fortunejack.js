@@ -95,10 +95,13 @@ var api = {
     },
     onwin:function() {
        mwcount++;
+       swaplosscount = 0;
+       
        if (mwcount < resetwins) {
        	curbet = curbet * 2;
        } else {
        	curbet = basebet;
+       	swaplosses=Math.floor(Math.random()*10);
        	mwcount=0;
        	$('#startstop').click();
        }
@@ -112,6 +115,7 @@ var api = {
         eval(wlcount + "++");
         if (eval(wlcount) >= eval(wlswap)) {
             eval(wlcount + "=0;");
+            swaplosses = Math.floor(Math.random()*6);
             if (target == $('#payout').val()) {
                 target = 100 - $('#payout').val(),
                     hilo = 1;
@@ -134,12 +138,12 @@ var e = document.createElement('script');
 	document.body.appendChild(e);
 
 
-
+var aliveCounter=0;
 setTimeout(function(){
 	
 	$('#roll, #setparams').button();
 	$('#setparams').click(function(){api.setParams();});
-	$( "#startstop" ).button({
+	$( "#startstop" ).unbind().button({
       text: false,
       icons: {
         primary: "ui-icon-play"
@@ -155,6 +159,11 @@ setTimeout(function(){
       	};
 		loop = setInterval(function(){
 			if (betstarted === false) {
+				aliveCounter++;
+				if (aliveCounter >= 50) {
+					keepAlive();
+					aliveCounter=0;
+				}
 			api.bet();
 			}
 		}, interval);  

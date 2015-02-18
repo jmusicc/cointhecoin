@@ -20,8 +20,9 @@ var mwcount=0;
 	var resetwins=3;
 	var loopstarted = false;
 	var loop, interval=150;
-
-var api = {
+var api;
+function initAPI() {
+api = {
         getResult: function() {
             if (balancebefore !== datamsg[3]) {
                 api.getResult2();
@@ -32,7 +33,13 @@ var api = {
             }
         },	
         getResult2: function() {
-
+            if ($('input[name=hilo]:checked').val() == "swap") {
+            	swapcount++;
+            	if (swapcount >= $('#swapevery').val()) {
+            		api.swap();
+            		swapcount=0;
+            	}
+            }
             var iswin, winloss, betprofit, curbet = 10;
             if (parseFloat(gameresult[5]) !== 0) {
                 iswin = true;
@@ -98,12 +105,13 @@ var api = {
        swaplosscount = 0;
        
        if (mwcount < resetwins) {
-       	curbet = curbet * 2;
+       	curbet = Math.floor(curbet * 1.5);
        } else {
-       	curbet = basebet;
-       	swaplosses=Math.floor(Math.random()*10);
+       	curbet = Math.floor(datamsg[3]/50);
+       
        	mwcount=0;
-       	$('#startstop').click();
+       
+       	betstarted = false;
        }
        betstarted = false;
     },
@@ -115,8 +123,7 @@ var api = {
         eval(wlcount + "++");
         if (eval(wlcount) >= eval(wlswap)) {
             eval(wlcount + "=0;");
-            swaplosses = Math.floor(Math.random()*6);
-            if (target == $('#payout').val()) {
+            if (parseFloat(target) == parseFloat($('#payout').val())) {
                 target = 100 - $('#payout').val(),
                     hilo = 1;
             } else {
@@ -124,7 +131,18 @@ var api = {
                     hilo = 0;
             }
         } else {}
+    },
+    swap2: function() {
+        
+        if (parseFloat(target) == parseFloat($('#payout').val())) {
+            target = 100 - $('#payout').val(),
+                hilo = 1;
+        } else {
+            target = 0 + $('#payout').val(),
+                hilo = 0;
+        }
     }
+}
 }
 
 
@@ -140,8 +158,11 @@ var e = document.createElement('script');
 
 var aliveCounter=0;
 setTimeout(function(){
-	
+	initAPI();
 	$('#roll, #setparams').button();
+	$('#roll').click(function(){
+		if (betstarted === false) {api.bet();}
+	})
 	$('#setparams').click(function(){api.setParams();});
 	$( "#startstop" ).unbind().button({
       text: false,
@@ -174,7 +195,7 @@ setTimeout(function(){
             primary: "ui-icon-play"
           }
         };
-          clearInterval(loop);
+          clearInterval(loop);betstarted=false;
       }
       $( this ).button( "option", options );
     });

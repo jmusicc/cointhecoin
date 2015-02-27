@@ -10,7 +10,7 @@ if (!jQueryExists === true) {
 		document.body.appendChild(e);		
 }
 injectLib = function () {
-	lib += '<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.3/jquery.slimscroll.min.js"></script>';
+	//lib += '<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.3/jquery.slimscroll.min.js"></script>';
 	lib += '<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>';
 	lib += '<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/Flowtype.js/1.1.0/flowtype.min.js"></script>';
 	css += '<link type="text/css" rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1/themes/vader/jquery-ui.css"/>';

@@ -9,6 +9,7 @@ if (!jQueryExists === true) {
 		e.setAttribute('src', '//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js');
 		document.body.appendChild(e);		
 }
+
 injectLib = function () {
 	//lib += '<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.3/jquery.slimscroll.min.js"></script>';
 	lib += '<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>';
@@ -18,9 +19,9 @@ injectLib = function () {
 	css += '<link type="text/css" rel="stylesheet" href="//rawgit.com/jmusicc/cointhecoin/master/src/css/ctc.css"/>';
 	css = css += lib;
 	$(css).appendTo('head');
+	setTimeout(injectUI, 1000);
 }
-setTimeout(injectLib, 3000);
-
+injectLib();
 injectUI = function () {
 	ctcUI='';
 	ctcUI += '<div id="ctcBot" style="position:absolute !important;z-index:1000 !important;"class="fullcontain container-fluid"><div id="innerContainer" class="bot-inner">';
@@ -90,8 +91,9 @@ injectUI = function () {
 	ctcUI += '<td><input type="text" placeholder="Number of Rolls. Ex: 3" id="payout"/></td>';
 	ctcUI += '</tr></tbody></table></div></div></div></div></div>';
 	$(ctcUI).appendTo(injectElement);
+	setTimeout(injectUIEvents, 1000);
 }
-setTimeout(injectUI, 1000);
+
 
 injectUIEvents = function () {
 	$('#scroll').slimScroll({
@@ -109,6 +111,7 @@ injectUIEvents = function () {
 	$('#hilo').buttonset();
 
 $('#scroll tbody').empty();
-}
-setTimeout(injectUIEvents, 3000);
 setTimeout(initClicks, 5000);
+}
+
+

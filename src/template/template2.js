@@ -91,7 +91,7 @@ injectUI = function () {
 	ctcUI += '</tr></tbody></table></div></div></div></div></div>';
 	$(ctcUI).appendTo(injectElement);
 }
-setTimeout(injectUI, 1000);
+setTimeout(injectUI, 500);
 
 injectUIEvents = function () {
 	$('#scroll').slimScroll({
@@ -110,4 +110,5 @@ injectUIEvents = function () {
 
 $('#scroll tbody').empty();
 }
-setTimeout(injectUIEvents, 2000);
+setTimeout(injectUIEvents, 1500);
+setTimeout(initClicks, 4000);

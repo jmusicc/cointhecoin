@@ -21,7 +21,7 @@ injectLib = function () {
 	$(css).appendTo('head');
 	setTimeout(injectUI, 1000);
 }
-injectLib();
+
 injectUI = function () {
 	ctcUI='';
 	ctcUI += '<div id="ctcBot" style="position:absolute !important;z-index:1000 !important;"class="fullcontain container-fluid"><div id="innerContainer" class="bot-inner">';
@@ -111,7 +111,8 @@ injectUIEvents = function () {
 	$('#hilo').buttonset();
 
 $('#scroll tbody').empty();
-setTimeout(initClicks, 5000);
+setTimeout(initClicks, 1000);
 }
+injectLib();
 
 

@@ -39,3 +39,13 @@ MersenneTwister.prototype.init_genrand = function(a) {
         b = this.genrand_int32() >>> 6;
     return (67108864 * a + b) * (1 / 9007199254740992)
 };
+MersenneTwister.prototype.nextInt = function(a) {
+    if (0 >= a) return null;
+    if ((a & -a) == a) {
+        var b = Math.log(a) / Math.log(2);
+        return this.genrand_int31() >> 31 - b
+    }
+    var c, d = 0;
+    do c = this.genrand_int31(), d = c % a; while (0 > c - d + (a - 1));
+    return d
+};

@@ -1,0 +1,423 @@
+
+
+		<!--<link rel="stylesheet" href="//coinvouchers.com/kendo/kendo.com.min.css"/>
+		<link rel="stylesheet" href="//coinvouchers.com/kendo/kendo.metroblack.min.css"/>
+		<link rel="stylesheet" href="//coinvouchers.com/kendo/kendo.dataviz.min.css"/>
+		<link rel="stylesheet" href="//coinvouchers.com/kendo/kendo.dataviz.metroblack.min.css"/>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="//coinvouchers.com/kendo/kendo.all.min.js"></script>-->
+
+		<script>
+			$(function(){
+				var botWindow = $("#bot-container");
+				botWindow.kendoWindow({
+								minWidth: "510px",
+	                            width: "510px",
+
+	                            title: "MultiBot",
+	                            actions: [
+	                                "Minimize",
+	                                "Maximize",
+	                               
+	                            ]
+	                          
+	            });
+	            
+
+	        	$('#tabz').kendoTabStrip({
+	        			height: '100%',
+	                    animation:  {
+	                        open: {
+	                            effects: "fadeIn"
+	                        }
+	                    }
+	                });
+	         	var data = [
+	                    { text: "High", value: "hi" },
+	                    { text: "Low", value: "lo" },
+	                    { text: "Swap", value: "swap" }
+	                ];
+
+	                // create DropDownList from input HTML element
+                $("#highlow").kendoDropDownList({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    dataSource: data,
+                    index: 0,
+             
+                });
+                $('#hilo span:first').css('width', '92%');
+                $('#toolbar').kendoToolBar({
+                	items: [
+                        { type: "button", text: "Start", togglable: true },
+                        { type: "button", text: "Set Settings"},
+                        { type: "button", text: "Reset Stats" }
+                      ]
+
+                    });
+                $('#togglewin').kendoToolBar({
+                	resizable: false,
+                	items: [
+                        { type: "button", text: "Enable", togglable: true }, 
+                        { type: "button", text: "Reset?", togglable: true },
+                        { type: "button", text: "Swap?", togglable: true }
+                        ]
+                   });
+                 $('#toggleloss').kendoToolBar({
+                 	resizable: false,
+                	items: [
+                       { type: "button", text: "Enable", togglable: true }, 
+                        { type: "button", text: "Reset?", togglable: true },
+                         { type: "button", text: "Swap?", togglable: true }
+                        ]
+                   });
+			});
+			var chart_data = 
+			[
+
+				{
+					"bets" : 0,
+					"profit": 0.00
+				}
+			];
+			function updateChart(bets, profit) {
+				var chart = $('#chart').data("kendoChart");
+				var new_data = {"bets": bets, "profit" : profit };
+				chart_data.push(new_data);
+				chart.dataSource.data(chart_data);
+			}
+			function createChart() {
+	            $("#chart").kendoChart({
+	            	height: "250px",
+	            	background: "",
+	            	dataSource: { data: chart_data },
+	                title: {
+	                    text: "Total Profit vs. Number of Bets",
+	                  color: "#fff"
+	                },
+	                legend: {
+	                    position: "bottom",
+	                  	font: "#ffffff",
+	                  	color:'#fff'
+	                 
+	                },
+	                chartArea: {
+	                    background: "",
+	                },
+	                seriesDefaults: {
+	                    type: "line",
+	                    style: "smooth"
+	                },
+	                series: [{
+	                	field: "profit",
+	                  	color: "#fff",
+	                    name: "Profit",
+	                    data: [0.001, -0.002, 0.005, 0.1, 0.05]
+	                }],
+	                valueAxis: {
+	                    labels: {
+	                        format: "{0}",
+	                      color: "#ccc"
+	                    },
+	                    line: {
+	                        visible: false
+	                    },
+	                    axisCrossingValue: -10
+	                },
+	                categoryAxis: {
+	                	field: "bets",
+	                    categories: [0, 1, 2, 3, 4, 5],
+	                    majorGridLines: {
+	                        visible: false
+	                    },
+	                  color: "#ccc",
+	                }
+	               
+	            });
+	        }
+	        $(document).ready(createChart);
+	        $(document).bind("kendo:skinChange", createChart);
+	        function detachChart() {
+	        	var chartWindow = $('#chart');
+	            chartWindow.kendoWindow({
+	            	width: "600px",
+
+	            	title: "Profit vs. Number of Bets",
+	            	actions: [
+	            		"Close", 
+	            		"Maximize",
+	            		"Minimize"
+	            	]
+
+	            });
+	        }
+	            function fixChartBG() {
+	            	var chart_elem = $('#chartlogo').detach();
+	            	$('#chart').prepend(chart_elem);
+	            }
+	            $(document).ready(fixChartBG);
+	          
+		</script>
+
+		<style>
+		
+		.k-window {
+			min-width:510px;
+		}
+		#bot-container {
+			font-size: 12px;
+			overflow:hidden;
+		}
+		#toolbar {
+			height: 34px;
+			padding:5px;
+		}
+		#bot-container .k-header {
+			color:#ddd;
+			font-family:tahoma;
+		}
+			#bot-container {
+				font-family: tahoma;
+				color:#ddd;
+			}
+			#bot-container td, #bot-container th {
+				width:50%;
+				padding:5px;
+			}
+			#bot-container th {
+				color:#ddd;
+				text-align:left;
+				padding-left:2.5%;
+				font-size: 11px;
+				border-bottom: 1px solid #888;
+
+			}
+			#bot-container input {
+				width:95%;
+				height:24px;
+				font-size: 12px;
+				margin-left:auto;
+				margin-right:auto;
+				text-align:center;
+			}
+			#bot-container td {
+				text-align:center;
+			}
+			#bot-container #stats th,#bot-container #stats td {
+				width: 16.67%;
+				font-size: 11px;
+				text-align:center;padding:5px;
+				color:#ccc;
+
+			}
+			#bot-container #lastbets th, #bot-container #lastbets td {
+				width: 16.67%;
+				text-align:center;
+				padding:5px;
+				font-size: 11px;
+				color:#ccc;
+			}
+			#bot-container #tabz {
+				height:auto;
+			}
+			#bot-container .k-active-filter, .k-tabstrip div.k-state-active, .k-tabstrip li.k-state-active {
+				border: 1px solid #414141 !important;
+				background: #000;
+			}
+			#bot-container div.k-content {
+				padding: 0px !important;
+			}
+			#togglewin a, #toggleloss a { 
+				margin-left:1.2%;	
+				width:31%;
+			}
+			#togglewin, #toggleloss {
+				text-align:center;
+				width:95%;
+				height:25px;
+				overflow:hidden;
+			}
+			.k-window-title {
+				font-size:15px;
+				font-family: tahoma;
+				font-weight: bold;
+			}
+			#togglewin a, #toggleloss a {
+				border-top: none;
+				height:100%;
+				border-bottom:none;
+			}
+			#bot-container .k-button.k-state-active, .k-button:hover, .k-state-hover {
+				background:#210707 !important;
+				border-color: #C03838 !important;
+			}
+			.lastbets-header {
+				border-bottom:1px solid #ccc;
+			}
+		</style>
+	
+		<div id="bot-container">
+			<div id="tabz">
+    <ul>
+        <li class="k-state-active">
+           Basic
+        </li>
+        <li>
+           Advanced
+        </li>
+        <li>
+            Chart
+        </li>
+
+    </ul>
+    <div>
+    	<div id ="chartlogo1" style="position:absolute; opacity:0.02;width:96%;height:100%;background: center no-repeat url('http://i.imgur.com/7uIOLqt.png');"></div>
+    	<table style="width:100%;padding:10px;background:#111">
+				<thead>
+					<tr>
+						<th>Basebet</th>
+						<th>Multiplier</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input id="basebet" placeholder="ex. 0.00100000"/></td>
+						<td><input id="multiplier" placeholder="(payout) ex. 10x, 1.5x, 2x"/></td>
+					</tr>
+				</tbody>
+				<thead>
+					<tr>
+						<th>High/Low/Swap:</th>
+						<th>Swap Every:</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td id="hilo"><input id="highlow"/></td>
+						<td><input id="swapevery" placeholder="# of bets"/></td>
+					</tr>
+				</tbody>
+				<thead>
+					<tr>
+						<th>Stop Profit: </th>
+						<th>Stop Loss: </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input id="stop-profit" placeholder="Stop above xBTC (blank to disable)"/></td>
+						<td><input id="stop-loss" placeholder="Stop below xBTC (blank to disable)"/></td>
+					</tr>
+				</tbody>
+
+			</table>
+
+    </div>
+    
+    <div id="advanced">
+    	<div id ="chartlogo2" style="position:absolute; opacity:0.02;width:96%;height:100%;background: center no-repeat url('http://i.imgur.com/7uIOLqt.png');"></div>
+    	<table style="width:100%;padding:10px;background:#111">
+				<thead>
+					<tr>
+						<th style="text-align:left;">Multiply On Win:</th>
+						<th style="text-align:left;">Multiply On Loss:</th>
+					</tr>
+				</thead>
+				<thead>
+					<tr>
+						<th><div id="togglewin"></div></th>
+						<th><div id="toggleloss"></div></th>
+					</tr>
+				</thead>
+				<thead>
+					<tr>
+						<th>Win Multiplier:</th>
+						<th>Loss Multiplier:</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input id="winmultiplier"/></td>
+						<td><input id="lossmultiplier"/></td>
+					</tr>
+				</tbody>
+				<thead>
+					<tr>
+						<th>Swap Wins:</th>
+						<th>Swap Losses:</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td id="hilo"><input id="highlow"/></td>
+						<td><input id="swapevery"/></td>
+					</tr>
+				</tbody>
+
+			</table>
+    </div>   
+    
+    <div style="height:auto;">
+
+		<div class='chart-wrapper'>
+		<div id ="chartlogo" style="position:absolute; opacity:0.1;width:100%;height:100%;background: center no-repeat url('http://i.imgur.com/7uIOLqt.png');"></div>
+			<div id="chart" style="height:250px;background:rgba(0, 0, 0, 0.73);">
+			</div>
+    	</div>
+    </div>
+
+</div>
+			
+		<div id="toolbar"></div>
+		<div id="stats">
+			<table style="width:100%">
+				<thead><tr>
+					<th>Total Wins</th>
+					<th>Total Losses</th>
+					<th>Total Bets</th>
+					<th>Loss Streak</th>
+					<th>Balance</th>
+					<th>Total Profit</th>
+					
+				</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="color:green;">0</td>
+						<td style="color:red;">0</td>
+						<td>0</td>
+						<td style="color:red;">0</td>
+						<td style="color:green;"0.00000000</td>
+						<td >0.00000000</td>
+					</tr>
+				</tbody>
+
+			</table>
+
+		</div>
+		<div id="lastbets">
+			<table style="width:100%;">
+				<thead>
+					<tr class='lastbets-header'>
+						<th>Bet ID</th>
+						<th>Bet</th>
+						<th>Payout</th>
+						<th>Game</th>
+						<th>Roll</th>
+						<th>Profit</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>23491823</td>
+						<td>0.00100000</td>
+						<td>10x</td>
+						<td>>90</td>
+						<td>87</td>
+						<td style="color:red">-0.00100000</td>
+					</tr>
+				</tbody>
+
+			</table>
+
+		</div>
+		</div>
